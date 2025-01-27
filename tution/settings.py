@@ -168,7 +168,5 @@ EMAIL_HOST_PASSWORD = 'bjwn tdsu yrdd himg'  # Replace with your app-specific pa
 DEFAULT_FROM_EMAIL = 'hargharpathshala03@gmail.com'  # Same as your email address
 
 # settings.py
-
-RAZORPAY_API_KEY = 'rzp_live_k1w8xDg5Q1aLOz'          # Replace with your Razorpay Key ID
-RAZORPAY_API_SECRET = 'S2ZKVXDsQDmoerDxJSIBNgG4'    # Replace with your Razorpay Key Secret
-
+RAZORPAY_API_KEY = 'rzp_live_tArVsYM02MZsFO'          # Replace with your Razorpay Key ID
+RAZORPAY_API_SECRET = 'a5PoKFyehNgxPttjvFc242GX'    # Replace with your Razorpay Key Secret
