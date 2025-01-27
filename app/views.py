@@ -274,3 +274,36 @@ def privacy_view(request):
 
 def Term_view(request):
     return render(request,'term_and_condition.html')
+
+
+
+from .models import Review
+from django.contrib import messages
+
+
+def review_page(request):
+    if request.method == 'POST':
+        # Get form data from the POST request
+        name = request.POST.get('name')
+        stars = request.POST.get('stars')
+        content = request.POST.get('content')
+
+        # Check if all required fields are filled
+        if name and stars and content:
+            # Create and save the review
+            review = Review(name=name, stars=int(stars), content=content)
+            review.save()
+            messages.success(request, 'Thank you for your review!')
+            return redirect('review_page')
+        else:
+            messages.error(request, 'Please fill out all fields.')
+
+    # Fetch all reviews from the database, ordered by creation date
+    reviews = Review.objects.order_by('-created_at')
+
+    # Prepare the reviews with star ratings as text
+    for review in reviews:
+        review.star_text = f"{review.stars} Star{'s' if review.stars > 1 else ''}"
+
+    return render(request, 'reviews.html', {'reviews': reviews})
+
