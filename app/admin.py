@@ -44,3 +44,9 @@ from .models import Payment
 class PaymentAdmin(admin.ModelAdmin):
     list_display = ['name', 'student_id', 'amount', 'transaction_id', 'created_at']
     search_fields = ['name', 'student_id', 'transaction_id']
+
+@admin.register(Review)
+class ReviewAdmin(admin.ModelAdmin):
+    list_display = ('name', 'stars', 'created_at')
+    list_filter = ('stars', 'created_at')
+    search_fields = ('name', 'content')
