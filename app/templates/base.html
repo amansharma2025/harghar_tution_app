@@ -60,6 +60,19 @@
     <link rel="icon" href="{% static 'app/img/logo.png' %}" type="image/x-icon">
   </head>
   <style>
+    .review-list::-webkit-scrollbar {
+      width: 8px; /* width of the scrollbar */
+  }
+  
+  .review-list::-webkit-scrollbar-thumb {
+      background-color: #888; /* color of the scroll thumb */
+      border-radius: 4px;
+  }
+  
+  .review-list::-webkit-scrollbar-thumb:hover {
+      background-color: #555; /* hover effect for the thumb */
+  }
+  
     .scrollable-container {
     display: flex;
     overflow-x: auto; /* Enable horizontal scrolling */
@@ -86,6 +99,7 @@
     max-width: 300px; /* Maximum card width for consistent appearance */
     flex-shrink: 0; /* Prevent cards from shrinking */
   }
+  
     .feature-list-wrapper {
       margin-bottom: 2rem;
     }
@@ -375,6 +389,9 @@ modals
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'tutor_application' %}">Careers</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'review_page' %}">Reviews</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
