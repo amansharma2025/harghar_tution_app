@@ -543,48 +543,48 @@
        </section>
        <!--teacher section-->
 
-       <section id="teachers" class="container my-5">
-         <h2 class="text-center mb-5">Meet Our Teachers</h2>
-       
-         <div class="row g-5">
-           {% for teacher in teachers %}
-           <div class="col-12 col-md-6">
-             <div class="testimonial-item">
-               <!-- Teacher's Image and Name -->
-               <div class="d-flex flex-column align-items-center text-center">
-                
-                 <h3>{{ teacher.name }}</h3>
-               </div>
-       
-               <!-- Teacher's Details -->
-               <div class="teacher-details">
-                 <p>
-                   <strong>Class 10:</strong> {{ teacher.class_10_percentage }}% |
-                   <strong>Class 12:</strong> {{ teacher.class_12_percentage }}%
-                 </p>
-                 <p>
-                   <strong>Degree:</strong> {{ teacher.degree_name }} ({{ teacher.degree_percentage }}%)
-                 </p>
-               </div>
-       
-               <!-- Teacher's Opinion -->
-               <h6 class="mt-3">Why Choose This Teacher?</h6>
-               <p>
-                 <i class="bi bi-quote quote-icon-left"></i>
-                 <span>{{ teacher.opinion }}</span>
-                 <i class="bi bi-quote quote-icon-right"></i>
-               </p>
-             </div>
-           </div>
-           {% empty %}
-           <!-- Display if no teachers are found -->
-           <div class="col-12">
-             <p class="text-center">No teachers found at the moment. Please check back later.</p>
-           </div>
-           {% endfor %}
-         </div>
-       </section>
-       
+      <section id="teachers" class="container my-5">
+        <h2 class="text-center mb-5">Meet Our Teachers</h2>
+      
+        <!-- Scrollable Container -->
+        <div class="scrollable-container d-flex gap-4">
+          {% for teacher in teachers %}
+          <div class="col-12 col-md-6 flex-shrink-0" style="max-width: 300px;">
+            <div class="testimonial-item p-4 border rounded shadow-sm">
+              <!-- Teacher's Image and Name -->
+              <div class="d-flex flex-column align-items-center text-center">
+                <h3>{{ teacher.name }}</h3>
+              </div>
+      
+              <!-- Teacher's Details -->
+              <div class="teacher-details">
+                <p>
+                  <strong>Class 10:</strong> {{ teacher.class_10_percentage }}% |
+                  <strong>Class 12:</strong> {{ teacher.class_12_percentage }}%
+                </p>
+                <p>
+                  <strong>Degree:</strong> {{ teacher.degree_name }} ({{ teacher.degree_percentage }}%)
+                </p>
+              </div>
+      
+              <!-- Teacher's Opinion -->
+              <h6 class="mt-3">Why Choose This Teacher?</h6>
+              <p>
+                <i class="bi bi-quote quote-icon-left"></i>
+                <span>{{ teacher.opinion }}</span>
+                <i class="bi bi-quote quote-icon-right"></i>
+              </p>
+            </div>
+          </div>
+          {% empty %}
+          <!-- Display if no teachers are found -->
+          <div class="col-12">
+            <p class="text-center">No teachers found at the moment. Please check back later.</p>
+          </div>
+          {% endfor %}
+        </div>
+      </section>
+      
        <!-- End Teacher Item -->
 
        <!-- Add more teacher items here -->
