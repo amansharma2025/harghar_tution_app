@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}Submit Review{% endblock title %}
+
+{% block container %}
+<div class="container my-5">
+    <div class="row">
+        <!-- Left Column: Review Form -->
+        <div class="col-md-6">
+            <h2 class="mb-4">Submit a Review</h2>
+            <form method="POST" class="border p-4 rounded shadow-sm bg-light">
+                {% csrf_token %}
+                <div class="mb-3">
+                    <label for="name" class="form-label">Your Name</label>
+                    <input type="text" id="name" name="name" required class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="stars" class="form-label">Rating (1-5 stars)</label>
+                    <select id="stars" name="stars" required class="form-select">
+                        <option value="">-- Select Rating --</option>
+                        <option value="1">1 Star</option>
+                        <option value="2">2 Stars</option>
+                        <option value="3">3 Stars</option>
+                        <option value="4">4 Stars</option>
+                        <option value="5">5 Stars</option>
+                    </select>
+                </div>
+                <div class="mb-3">
+                    <label for="content" class="form-label">Your Review</label>
+                    <textarea id="content" name="content" rows="4" required class="form-control"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary w-100">Submit Review</button>
+            </form>
+        </div>
+
+        <!-- Right Column: Display Reviews -->
+        <div class="col-md-6">
+            <h2 class="mb-4">What Others Say</h2>
+            <div class="review-list" style="max-height: 400px; overflow-y: scroll;">
+                {% for review in reviews %}
+                <div class="review-item border p-3 rounded shadow-sm mb-3 bg-white">
+                    <h5 class="mb-1">{{ review.name }}</h5>
+                    <div class="text-warning mb-2">
+                        <!-- Display the star rating as text -->
+                        <strong>{{ review.star_text }}</strong>
+                    </div>
+                    <p>{{ review.content }}</p>
+                    <small class="text-muted">Posted on {{ review.created_at|date:"F j, Y" }}</small>
+                </div>
+                {% empty %}
+                <p>No reviews yet. Be the first to share your thoughts!</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock container %}
