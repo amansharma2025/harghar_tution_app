@@ -60,6 +60,27 @@
     <link rel="icon" href="{% static 'app/img/logo.png' %}" type="image/x-icon">
   </head>
   <style>
+    .scrollable-container {
+      display: flex;
+      overflow-x: auto; /* Enable horizontal scrolling */
+      padding-bottom: 1rem; /* Space for scrollbar */
+    }
+  
+    .scrollable-container::-webkit-scrollbar {
+      height: 8px; /* Adjust scrollbar height */
+    }
+  
+    .scrollable-container::-webkit-scrollbar-thumb {
+      background-color: #ccc; /* Color of the scrollbar thumb */
+      border-radius: 4px; /* Rounded scrollbar */
+    }
+  
+    .scrollable-container::-webkit-scrollbar-track {
+      background-color: #f1f1f1; /* Color of the scrollbar track */
+    }
+    .testimonial-item {
+      width: 100%; /* Ensure card width adapts */
+    }
     .feature-list-wrapper {
       margin-bottom: 2rem;
     }
