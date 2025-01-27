@@ -49,3 +49,13 @@ class Payment(models.Model):
 
     def __str__(self):
         return f"{self.name} - {self.student_id} - {self.transaction_id}"
+
+
+class Review(models.Model):
+    name = models.CharField(max_length=100)
+    stars = models.PositiveSmallIntegerField(choices=[(i, f"{i} Stars") for i in range(1, 6)])
+    content = models.TextField()
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"{self.name} - {self.stars} Stars"
