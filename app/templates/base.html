@@ -61,26 +61,31 @@
   </head>
   <style>
     .scrollable-container {
-      display: flex;
-      overflow-x: auto; /* Enable horizontal scrolling */
-      padding-bottom: 1rem; /* Space for scrollbar */
-    }
-  
-    .scrollable-container::-webkit-scrollbar {
-      height: 8px; /* Adjust scrollbar height */
-    }
-  
-    .scrollable-container::-webkit-scrollbar-thumb {
-      background-color: #ccc; /* Color of the scrollbar thumb */
-      border-radius: 4px; /* Rounded scrollbar */
-    }
-  
-    .scrollable-container::-webkit-scrollbar-track {
-      background-color: #f1f1f1; /* Color of the scrollbar track */
-    }
-    .testimonial-item {
-      width: 100%; /* Ensure card width adapts */
-    }
+    display: flex;
+    overflow-x: auto; /* Enable horizontal scrolling */
+    padding-bottom: 1rem; /* Space for scrollbar */
+    -webkit-overflow-scrolling: touch; /* Smooth touch-based scrolling on mobile */
+    gap: 1rem; /* Space between cards */
+  }
+
+  .scrollable-container::-webkit-scrollbar {
+    height: 8px; /* Adjust scrollbar height */
+  }
+
+  .scrollable-container::-webkit-scrollbar-thumb {
+    background-color: #ccc; /* Color of the scrollbar thumb */
+    border-radius: 4px; /* Rounded scrollbar */
+  }
+
+  .scrollable-container::-webkit-scrollbar-track {
+    background-color: #f1f1f1; /* Color of the scrollbar track */
+  }
+
+  .testimonial-item teach {
+    width: 100%; /* Card width adapts to content */
+    max-width: 300px; /* Maximum card width for consistent appearance */
+    flex-shrink: 0; /* Prevent cards from shrinking */
+  }
     .feature-list-wrapper {
       margin-bottom: 2rem;
     }
